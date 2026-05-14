@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>UrbanX Fashion Trends</title>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #F4EBD8;
+            --text-color: #2a2a2a;
+            --accent-color: #c4a484;
+            --border-color: #e5dac7;
+            --card-bg: #ffffff;
+            --brand-yellow: #DDA700;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        /* --- 1. NAVIGATION BAR (From Outfit Page) --- */
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(-45deg, #2C1E16, #4A3525, #38271A, #1F140D);
+            background-size: 400% 400%;
+            animation: silkMove 12s ease infinite;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-bottom: 4px solid var(--brand-yellow); 
+            position: relative;
+        }
+
+        h1 {
+            font-size: 40px;
+            letter-spacing: 2px;
+            margin-bottom: 1px;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        #x-glow {
+            display: inline-block;
+            font-size: 50px;
+            transform: rotate(-30deg);
+            color: #f59e0b;    
+        }
+
+        .social-container {
+            position: absolute; 
+            top: 20px;          
+            right: 20px;        
+            display: flex;
+            gap: 12px;          
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.4s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px) scale(1.08);
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex; 
+            justify-content: center;
+            gap: 60px;
+            padding: 25px;
+        }
+
+        nav a {
+            color: #F4EBD8;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 25px; 
+            border: 2px solid rgba(244, 235, 216, 0.3); 
+            border-radius: 50px; 
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            transition: all 0.4s ease; 
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: var(--brand-yellow); 
+            color: #ffffff; 
+            border-color: var(--brand-yellow);
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 20px rgba(221, 167, 0, 0.5); 
+        }
+
+        @keyframes silkMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- 2. THE HOME VIDEO --- */
+        #home {
+            width: 100%;
+            height: calc(100vh - 240px); /* Adjusted to fit exactly under the taller new header */
+            overflow: hidden;
+            background-color: #000; 
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        #myVideo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block; 
+/* --- VIDEO TEXT OVERLAY --- */
+        .video-text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5; /* Puts the text above the video */
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-size: 100px; /* Make it large and impactful */
+            color: #ffffff;
+            text-transform: none; /* Keeps it exactly as UrbanX */
+            letter-spacing: 2px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8); /* Adds depth so it stands out against the smoke */
+            font-weight: bold;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-x {
+            display: inline-block;
+            transform: rotate(-30deg); /* Tilts the X */
+            color: var(--brand-yellow); /* Uses your brand color */
+            margin-left: 2px;
+        }
+
+        /* Optional: Makes the text fade in beautifully when the page loads */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        }
+
+        /* --- 3. TRENDING BANNER SECTION --- */
+        #trending-banner {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 60px auto; 
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        #trending-banner img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .trending-btn {
+            position: absolute;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--brand-yellow);
+            color: #fff;
+            padding: 15px 45px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            font-family: inherit;
+        }
+
+        .trending-btn:hover {
+            background-color: #2C1E16;
+            color: var(--brand-yellow);
+            transform: translate(-50%, -8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Urban<div id="x-glow">X</div></h1>
+        
+        <div class="social-container">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div> 
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="trending.html">Trending</a></li>
+                <li><a href="outfit1.html">Outfit</a></li>
+                <li><a href="#accessories">Accessories</a></li>
+                <li><a href="#signup">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION: Full Width, No Padding -->
+    <section id="home">
+        <video autoplay muted loop id="myVideo">
+            <source src="home2.mp4" type="video/mp4">
+		<div class="video-text-overlay">
+            <h1 class="hero-title">Urban<span class="hero-x">X</span></h1>
+        </div>
+        </video>
+    </section>
+
+    <!-- NEW TRENDING BANNER SECTION -->
+    <section id="trending-banner">
+        <img src="C:\Users\HP\OneDrive\Documents\S2\23CSE113 UID\UID\UID Project\UID Project Final\ban.jpeg" alt="Men's Style and Fashion">
+        <a href="outfit1.html" class="trending-btn">Discover Outfit Ideas</a>
+    </section>
+
+</body>
+</html>

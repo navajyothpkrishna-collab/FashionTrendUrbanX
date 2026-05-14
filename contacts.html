@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UrbanX - Contact</title>
+  <link rel="stylesheet" href="contactstyle.css">
+</head>
+<body>
+    <div class="bg-3d-wrapper">
+        <div class="shape-3d shape-1"></div>
+        <div class="shape-3d shape-2"></div>
+        <div class="shape-3d shape-3"></div>
+        <div class="shape-3d shape-4"></div>
+        <div class="shape-3d shape-5"></div>
+        <div class="shape-3d shape-6"></div>
+    </div>
+<header>
+  <h1 class="logo">Urban<span class="brand-x">X</span></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="trending.html">Trending</a>
+    <a href="outfit1.html">Outfit Ideas</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="contacts.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="contact-header">
+    <h2>Get in Touch</h2>
+    <p class="subtitle">For personal styling, expert opinions, or general questions, please leave us a message.</p>
+  </section>
+
+  <section class="contact-form-section">
+    <div class="form-container">
+      <form id="contactForm" onsubmit="return validateForm(event)">
+        
+        <div class="input-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="e.g. Mangalassery Neelakandan">
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="text" id="email" placeholder="e.g. hari@gmail.com">
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" placeholder="e.g. 94XXXXXX89">
+        </div>
+
+        <div class="input-group">
+          <label for="subject">Inquiry Subject</label>
+          <input type="text" id="subject" placeholder="e.g. Outfit Pairing">
+        </div>
+
+        <div class="input-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" placeholder="How may we assist you?"></textarea>
+        </div>
+
+        <p id="formFeedback" class="feedback-msg"></p>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script>
+  function validateForm(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const feedback = document.getElementById('formFeedback');
+
+    if (name === "" || email === "" || phone === "" || subject === "" || message === "") {
+      feedback.style.color = "#d9534f";
+      feedback.innerText = "Please fill in all required fields.";
+      return false;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+      feedback.style.color = "#d9534f"; 
+      feedback.innerText = "Please enter a valid email address.";
+      return false;
+    }
+
+    if (isNaN(phone)) {
+      feedback.style.color = "#d9534f"; 
+      feedback.innerText = "Please enter a valid numeric phone number.";
+      return false;
+    }
+
+    feedback.style.color = "#A67000";
+    feedback.innerText = "Thank you, " + name + ". Your message has been sent elegantly.";
+
+    setTimeout(() => {
+      document.getElementById('contactForm').reset();
+      feedback.innerText = "";
+    }, 3000);
+
+    return true;
+  }
+</script>
+
+</body>
+</html>

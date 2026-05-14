@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UrbanX - Trending Outfits</title>
+<link rel="stylesheet" href="stylehari.css">
+</head>
+<body>
+<div class="bg-3d-wrapper">
+        <div class="shape-3d shape-1"></div>
+        <div class="shape-3d shape-2"></div>
+        <div class="shape-3d shape-3"></div>
+        <div class="shape-3d shape-4"></div>
+        <div class="shape-3d shape-5"></div>
+        <div class="shape-3d shape-6"></div>
+    </div>
+<header>
+   <h1 class="logo">Urban<span class="brand-x">X</span></h1>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="trending.html">Trending</a>
+    <a href="outfit1.html">Outfit Ideas</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="contacts.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="hero">
+    <h2>Trending Outfits</h2>
+    <p>"The well-dressed man never stands out in a crowd; his elegance sets him apart." - <b>Oscar de la Renta</b></p>
+  </section>
+
+  <section id="casual">
+    <h3>Casual</h3>
+    <div class="grid-container">
+      <div class="card">
+        <img src= "evrddenim.JPG" alt="Everyday Denim" class="outfit-img">
+        <h4>Everyday Denim</h4>
+      </div>
+      <div class="card">
+        <img src="ovrsz.JPG" alt="Oversized Tees" class="outfit-img">
+        <h4>Oversized Tees</h4>
+      </div>
+      <div class="card">
+        <img src="snkstyle.JPG" alt="Stripped Shirts" class="outfit-img">
+        <h4>Sneaker Style</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="formal">
+    <h3>Formal</h3>
+    <div class="grid-container">
+      <div class="card">
+        <img src="clssut.JPG" alt="Classic Suits" class="outfit-img">
+        <h4>Classic Suits</h4>
+      </div>
+      <div class="card">
+        <img src="prtw.JPG" alt="Party Wears" class="outfit-img">
+        <h4>Party Wears</h4>
+      </div>
+      <div class="card">
+        <img src="blz.JPG" alt="Blazers" class="outfit-img">
+        <h4>Blazers</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="party">
+    <h3>OLD MONEY</h3>
+    <div class="grid-container">
+      <div class="card">
+        <img src="polo.JPG" alt="Cashmere Long Sleeve Polo" class="outfit-img">
+        <h4>Cashmere Long Sleeve Polos</h4>
+      </div>
+      <div class="card">
+        <img src="kor.JPG" alt="Korean Pants With Polos" class="outfit-img">
+        <h4>Korean Pants With Polos</h4>
+      </div>
+      <div class="card">
+        <img src="ralf.JPG" alt="Ralph Lauren" class="outfit-img">
+        <h4>Ralph Lauren</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="ethnic">
+    <h3>Ethnic</h3>
+    <div class="grid-container">
+      <div class="card">
+        <img src="jsuit.JPG" alt="Jodhpuri Suits" class="outfit-img">
+        <h4>Jodhpuri Suits</h4>
+      </div>
+      <div class="card">
+        <img src="kurtas.jpg" alt="Kurtas" class="outfit-img">
+        <h4>Kurtas</h4>
+      </div>
+      <div class="card">
+        <img src="lalettan.jpg" alt="Shirt & Mundu" class="outfit-img"  onclick="playVoice()" style="cursor: pointer;">
+        <h4>Shirt and Mundu</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="popular">
+    <h3>Popular Outfits Of The Week</h3>
+    <div class="grid-container">
+      <div class="card">
+        <img src="mono.JPG" alt="Monochrome" class="outfit-img">
+        <h4>Monochrome</h4>
+      </div>
+      <div class="card">
+        <img src="vintage.JPG" alt="Vintage Revival" class="outfit-img">
+        <h4>Vintage Revival</h4>
+      </div>
+      <div class="card">
+        <img src="linen.jpg" alt="Linen Essentials" class="outfit-img">
+        <h4>Linen Essentials</h4>
+      </div>
+    </div>
+  </section>
+</main>
+<audio id="myVoiceFile">
+        <!-- REPLACE 'your-audio-file.mp3' with your actual sound file name -->
+        <source src="lal2.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        function playVoice() {
+            var audio = document.getElementById("myVoiceFile");
+            audio.currentTime = 0; // Resets the audio to the beginning if clicked multiple times
+            audio.play();
+        }
+    </script>
+</body>
+</html>

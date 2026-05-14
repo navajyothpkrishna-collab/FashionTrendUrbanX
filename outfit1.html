@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>UrbanX Fashion Trends</title>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #F4EBD8;
+            --text-color: #2a2a2a;
+            --accent-color: #c4a484;
+            --border-color: #e5dac7;
+            --card-bg: #ffffff;
+            --brand-yellow: #DDA700;
+        }  
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevents horizontal scroll from 3D elements */
+        }
+
+        /* --- NEW 3D BACKGROUND EFFECTS --- */
+        .bg-3d-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -5; /* Keep it behind everything */
+            overflow: hidden;
+            background-color: var(--bg-color);
+            perspective: 1000px; /* Enables 3D depth */
+        }
+
+        .shape-3d {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(196, 164, 132, 0.2));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            /* Soft 3D Neumorphic Shadows matching your theme */
+            box-shadow: 20px 20px 40px rgba(196, 164, 132, 0.4),
+                       -20px -20px 40px rgba(255, 255, 255, 0.9);
+            transform-style: preserve-3d;
+            animation: float3D infinite linear;
+            bottom: -300px;
+        }
+
+        /* Individual shapes with varied 3D properties */
+        .shape-1 { width: 120px; height: 120px; left: 10%; border-radius: 20px; animation-duration: 25s; }
+        .shape-2 { width: 220px; height: 220px; left: 70%; border-radius: 50%; animation-duration: 35s; animation-delay: -5s; }
+        .shape-3 { width: 80px; height: 80px; left: 40%; border-radius: 15px; animation-duration: 20s; animation-delay: -10s; }
+        .shape-4 { width: 160px; height: 160px; left: 85%; border-radius: 30px; animation-duration: 30s; animation-delay: -15s; }
+        .shape-5 { width: 250px; height: 250px; left: 15%; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation-duration: 40s; animation-delay: -2s; }
+        .shape-6 { width: 100px; height: 100px; left: 55%; border-radius: 50%; animation-duration: 28s; animation-delay: -8s; }
+
+        @keyframes float3D {
+            0% {
+                transform: translateY(0) translateZ(-150px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                /* Moves up while rotating in 3D space */
+                transform: translateY(-130vh) translateZ(250px) rotateX(360deg) rotateY(180deg) rotateZ(180deg);
+                opacity: 0;
+            }
+        }
+        /* ----------------------------------- */
+
+        h1, h2, h3, h4 {
+            font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(-45deg, #2C1E16, #4A3525, #38271A, #1F140D);
+            background-size: 400% 400%;
+            animation: silkMove 12s ease infinite;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-bottom: 4px solid var(--brand-yellow); 
+        }
+
+        h1 {
+            font-size: 40px;
+            letter-spacing: 2px;
+            margin-bottom: 1px;
+            text-transform: uppercase;
+        }
+        @keyframes silkMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes pulseGlow {
+            0% {
+                text-shadow: 0 0 5px var(--brand-yellow), 0 0 10px var(--brand-yellow);
+                transform: scale(1);
+            }
+            100% {
+                text-shadow: 0 0 20px var(--brand-yellow), 0 0 30px var(--brand-yellow), 0 0 40px #ffffff;
+                transform: scale(1.1);
+            }
+        }
+
+        .logo {
+            font-size: 4em;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #F4EBD8;
+        }
+
+        .brand-x {
+            color: var(--brand-yellow); 
+            display: inline-block;
+            animation: pulseGlow 1.5s infinite alternate; 
+        }
+        .social-container {
+            position: absolute; 
+            top: 20px;          
+            right: 20px;        
+            display: flex;
+            gap: 12px;          
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.4s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px) scale(1.08);
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+         
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: #F4EBD8;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 25px; 
+            border: 2px solid rgba(244, 235, 216, 0.3); 
+            border-radius: 50px; 
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            transition: all 0.4s ease; 
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: var(--brand-yellow); 
+            color: #ffffff; 
+            border-color: var(--brand-yellow);
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 20px rgba(221, 167, 0, 0.5); 
+        }
+
+        main {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #hero {
+            text-align: center;
+            margin-bottom: 90px;
+            padding: 80px 40px; 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('/Users/harinandansunil/Downloads/360_F_632272717_lCUsZZ6lzLuc8Rcc0wovABGLRENje66d.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-top: 4px solid var(--brand-yellow); 
+            border-bottom: 4px solid var(--brand-yellow);
+            max-width: 900px;
+            margin: 0 auto 90px auto;
+        }
+
+        #hero h2 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: #ffffff; 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        #hero p {
+            font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+            font-size: 1.8em;
+            color: #fdfbf7; 
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        #hero p b {
+            display: block;
+            margin-top: 25px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.55em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--brand-yellow); 
+            font-style: normal;
+        }
+
+        section {
+            margin-bottom: 80px;
+            width: 100%;
+        }
+
+        h3 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: left;
+            font-size: 1.8em;
+            margin-bottom: 40px;
+            color: var(--accent-color);
+            border-left: 5px solid var(--brand-yellow);
+            padding-left: 15px;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            width: 280px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: var(--brand-yellow);
+        }
+
+        .outfit-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        h4 {
+            font-size: 1.2em;
+            margin: 10px 0 5px 0;
+            letter-spacing: 1px;
+            color: var(--text-color);
+        }
+ 
+        input[type="radio"][name="clothing-filter"] {
+            display: none;
+        }
+
+        .filter-menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .filter-btn:hover {
+            background-color: #bdf271;
+            border-color: #bdf271;
+            color: #2a2a2a;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(189, 242, 113, 0.5);
+        }
+
+        #filter-all:checked ~ .filter-menu label[for="filter-all"],
+        #filter-streetwear:checked ~ .filter-menu label[for="filter-streetwear"],
+        #filter-formal:checked ~ .filter-menu label[for="filter-formal"],
+        #filter-casual:checked ~ .filter-menu label[for="filter-casual"]
+        #filter-traditional:checked ~ .filter-menu label[for="filter-traditional"] 
+        {
+            background-color: #bdf271;
+            border-color: #bdf271;
+            font-weight: bold;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+            position: relative; /* Keeps grid above 3D background */
+            z-index: 1;
+        }
+
+        .product-card {
+            width: 280px;
+            padding: 15px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.3); /* Slightly increased opacity for contrast against 3D shapes */
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-24px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: rgba(21, 197, 80, 0.473);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        @keyframes silkMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- CSS FILTERING LOGIC --- */
+        #filter-streetwear:checked ~ .product-grid .product-card:not(.streetwear) { display: none; }
+        #filter-formal:checked ~ .product-grid .product-card:not(.formal) { display: none; }
+        #filter-traditional:checked ~ .product-grid .product-card:not(.traditional) { display: none; }
+
+        #myVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .video-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: -1;
+        } /* Note: I fixed the syntax error here that was breaking your CSS */
+
+        #home {
+            position: relative;
+            height: 100vh;
+        }
+        
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+
+        #myBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 3D ANIMATED BACKGROUND CONTAINER -->
+    <div class="bg-3d-wrapper">
+        <div class="shape-3d shape-1"></div>
+        <div class="shape-3d shape-2"></div>
+        <div class="shape-3d shape-3"></div>
+        <div class="shape-3d shape-4"></div>
+        <div class="shape-3d shape-5"></div>
+        <div class="shape-3d shape-6"></div>
+    </div>
+
+    <header>
+        <h1 class="logo">Urban<span class="brand-x">X</span></h1>
+
+        
+        <div class="social-container">
+            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div> 
+
+        <nav>
+           <a href="home.html">Home</a>
+    <a href="trending.html">Trending</a>
+    <a href="outfit1.html">Outfit Ideas</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="contacts.html">Contact</a>
+        </nav>
+    </header>
+   
+    <main id="outfit">
+        <section id="outfit-section">
+            <h2 style="text-align: center; margin-bottom: 30px;"> Outfit Ideas </h2>
+
+            <input type="radio" id="filter-all" name="clothing-filter" checked>
+            <input type="radio" id="filter-streetwear" name="clothing-filter">
+            <input type="radio" id="filter-formal" name="clothing-filter">
+            <input type="radio" id="filter-casual" name="clothing-filter">
+            <input type="radio" id="filter-traditional" name="clothing-filter">
+
+            <div class="filter-menu">
+                <label for="filter-all" class="filter-btn">All</label>
+                <label for="filter-streetwear" class="filter-btn">Streetwear</label>
+                <label for="filter-formal" class="filter-btn">Formal Wear</label>
+                <label for="filter-casual" class="filter-btn">Casual Classics</label>
+                <label for="filter-traditional" class="filter-btn">Traditional</label>
+            </div>
+
+            <div class="product-grid">
+                
+                <div class="product-card streetwear">
+                    <a href="https://www.myntra.com/sweatshirts/mast+&+harbour/mast--harbour-men-mock-collar-front-open-sweatshirt/37085849/buy" target="_blank"><img src="mencasualjacket.jpg" alt="Men Casual Jacket"></a>
+                    <h3>Men Casual Jacket</h3>
+                </div>
+		 
+                <div class="product-card streetwear">
+                    <img src="menjeanjacket.webp" alt="Jeans Jacket">
+                    <h3>Men Jeans Jacket</h3>
+                </div>
+
+                <div class="product-card streetwear">
+                    <a href="https://www.amazon.in/Trackpants-Oversized-Streetwear-Comfortable-Joggers/dp/B0FVY9XTV3" target="_blank"><img src="swtp.jpg" alt="Trackpant"></a>
+                    <h3>Men Streetwear Trackpant</h3>
+                </div>
+
+                <div class="product-card streetwear">
+                    <img src="swg.webp" alt="Square Sun Glass">
+                    <h3>Men Streetwear Sun Glass</h3>
+                </div>
+		 
+                <div class="product-card formal">
+                    <img src="menpremiumsuit.avif" alt="Formal Suit"> 
+                    <h3>Men Premium Suit</h3>
+                </div>
+
+                <div class="product-card formal">
+                    <a href="https://www.myntra.com/belts/winsome+deal/winsome-deal-men-push-pin-textured-for"target="_blank"><img src="fwn.webp" alt="Formal Belt"></a>
+                    <h3>Men Premium Belt</h3>
+                </div>
+
+                <div class="product-card casual">
+                   <img src="causalshirt.avif" alt="Casual Shirt"> 
+                   <h3>Men Casual Shirt</h3>
+                </div>
+
+                <div class="product-card casual">
+                    <a href="https://www.limeroad.com/blue-linen-showoff-p19662779?srsltid=AfmBOorzSj4QCchSb5upW7RJJnGc6qXMQza_5ijz7JUnwJCxHQ06SS0e" target="_blank"><img src="tcasshirt.avif" alt="Typography Casual Shirt"></a>
+                    <h3>Typography Casual Shirt</h3>
+                </div>
+                <div class="product-card casual">
+                    <a href="https://www.batchmens.com/pages/mens-style-guide-the-basics-of-matching-clothes?srsltid=AfmBOoo0tJ_Y13hXckdEdSPsZjQkb-BmXU9eXwMptNCfIGTRaaIWvuYY" target="_blank"><img src="casoutshirt.webp" alt="Casual Shirt"></a>
+                    <h3> Men Casual Shirt</h3>
+                </div>
+                <div class="product-card traditional" onclick="playVoice()" style="cursor: pointer;">
+                    <img src="tratlal.jpg" alt="Traditional"> 
+                    <h3> Men Traditional Shirt</h3>
+                </div>
+                <div class="product-card traditional">
+                    <img src="tratunii.jpg" alt="Traditional"> 
+                    <h3> Men Traditional Shirt</h3>
+                </div>
+                <div class="product-card traditional">
+                    <img src="trshirt.avif" alt="Traditional" > 
+                    <h3> Men Traditional Shirt</h3>
+                </div>
+
+            </div>
+        </section>
+    </main>
+<audio id="myVoiceFile">
+        <!-- REPLACE 'your-audio-file.mp3' with your actual sound file name -->
+        <source src="lal2.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        function playVoice() {
+            var audio = document.getElementById("myVoiceFile");
+            audio.currentTime = 0; // Resets the audio to the beginning if clicked multiple times
+            audio.play();
+        }
+    </script>
+</body>
+</html>
+ 

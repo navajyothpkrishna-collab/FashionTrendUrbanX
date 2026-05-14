@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MENX Accessories</title>
+
+<style>
+:root {
+  --bg-color: #F4EBD8;
+  --text-color: #2a2a2a;
+  --accent-color: #c4a484;
+  --border-color: #e5dac7;
+  --card-bg: #ffffff;
+  --brand-yellow: #DDA700;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Didot', 'Bodoni MT', 'Times New Roman', serif;
+  font-weight: normal;
+  margin: 0;
+}
+
+header {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(-45deg, #2C1E16, #4A3525, #38271A, #1F140D);
+  background-size: 400% 400%;
+  animation: silkMove 12s ease infinite;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-bottom: 4px solid var(--brand-yellow); 
+}
+
+@keyframes silkMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.logo {
+  font-size: 4em;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #F4EBD8;
+}
+
+.brand-x {
+  color: var(--brand-yellow); 
+}
+.bg-3d-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -5; /* Keep it behind everything */
+            overflow: hidden;
+            background-color: var(--bg-color);
+            perspective: 1000px; /* Enables 3D depth */
+        }
+
+        .shape-3d {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(196, 164, 132, 0.2));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            /* Soft 3D Neumorphic Shadows matching your theme */
+            box-shadow: 20px 20px 40px rgba(196, 164, 132, 0.4),
+                       -20px -20px 40px rgba(255, 255, 255, 0.9);
+            transform-style: preserve-3d;
+            animation: float3D infinite linear;
+            bottom: -300px;
+        }
+
+        /* Individual shapes with varied 3D properties */
+        .shape-1 { width: 120px; height: 120px; left: 10%; border-radius: 20px; animation-duration: 25s; }
+        .shape-2 { width: 220px; height: 220px; left: 70%; border-radius: 50%; animation-duration: 35s; animation-delay: -5s; }
+        .shape-3 { width: 80px; height: 80px; left: 40%; border-radius: 15px; animation-duration: 20s; animation-delay: -10s; }
+        .shape-4 { width: 160px; height: 160px; left: 85%; border-radius: 30px; animation-duration: 30s; animation-delay: -15s; }
+        .shape-5 { width: 250px; height: 250px; left: 15%; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation-duration: 40s; animation-delay: -2s; }
+        .shape-6 { width: 100px; height: 100px; left: 55%; border-radius: 50%; animation-duration: 28s; animation-delay: -8s; }
+
+        @keyframes float3D {
+            0% {
+                transform: translateY(0) translateZ(-150px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                /* Moves up while rotating in 3D space */
+                transform: translateY(-130vh) translateZ(250px) rotateX(360deg) rotateY(180deg) rotateZ(180deg);
+                opacity: 0;
+            }
+        }
+nav {
+  margin-top: 20px;
+}
+
+nav a {
+  color: #F4EBD8;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 10px 25px; 
+  border: 2px solid rgba(244, 235, 216, 0.3); 
+  border-radius: 50px; 
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+  transition: all 0.4s ease; 
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: var(--brand-yellow); 
+  color: #ffffff; 
+  border-color: var(--brand-yellow);
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 20px rgba(221, 167, 0, 0.5); 
+}
+
+main {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#hero {
+  text-align: center;
+  margin-bottom: 90px;
+  padding: 80px 40px; 
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+  url('https://img.magnific.com/free-photo/top-view-accessoires-travel-with-women-clothing-concept-white-mobilephone-watch-bag-hat-map-camera-necklace-trousers-sunglasses-white-wood-table_1921-106.jpg?semt=ais_hybrid&w=740&q=80');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  border-top: 4px solid var(--brand-yellow); 
+  border-bottom: 4px solid var(--brand-yellow);
+}
+
+#hero h2 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  color: white;
+}
+
+#hero p {
+  color: #fdfbf7;
+  font-size: 1.3em;
+  max-width: 700px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.8em;
+  margin-bottom: 40px;
+  color: var(--accent-color);
+  border-left: 5px solid var(--brand-yellow);
+  padding-left: 15px;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  width: 280px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  border-color: var(--brand-yellow);
+}
+
+.outfit-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--brand-yellow);
+  margin-bottom: 15px;
+}
+
+.buy-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--text-color);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.buy-btn:hover {
+  background-color: var(--brand-yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(221,167,0,0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #1F140D;
+  color: #F4EBD8;
+  border-top: 4px solid var(--brand-yellow);
+}
+</style>
+</head>
+
+<body>
+
+ <div class="bg-3d-wrapper">
+        <div class="shape-3d shape-1"></div>
+        <div class="shape-3d shape-2"></div>
+        <div class="shape-3d shape-3"></div>
+        <div class="shape-3d shape-4"></div>
+        <div class="shape-3d shape-5"></div>
+        <div class="shape-3d shape-6"></div>
+    </div>
+<header>
+  <h1 class="logo">Urban<span class="brand-x">X</span></h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="trending.html">Trending</a>
+    <a href="outfit1.html">Outfit Ideas</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="contacts.html">Contact</a>
+  </nav>
+</header>
+<main>
+
+<section id="hero">
+  <h2>Luxury Men's Accessories</h2>
+  <p>
+    Upgrade your style with premium watches, luxury shoes and elite accessories.
+    Crafted for modern gentlemen.
+  </p>
+</section>
+
+<!-- WATCHES -->
+<section>
+  <h3>Mens Watches</h3>
+
+  <div class="grid-container">
+
+    <div class="card">
+      <img class="outfit-img" src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=900&auto=format&fit=crop">
+      <h4>Rolex Style Watch</h4>
+      <p class="price">₹4,999</p>
+
+      <a class="buy-btn"
+      href="https://www.amazon.in/s?k=premium+watch"
+      target="_blank">
+      Buy Now
+      </a>
+    </div>
+
+    <div class="card">
+      <img class="outfit-img" src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=900&auto=format&fit=crop">
+      <h4>Classic Black Watch</h4>
+      <p class="price">₹3,499</p>
+
+      <a class="buy-btn"
+      href="https://www.amazon.in/"
+      target="_blank">
+      Buy Now
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- SHOES -->
+<section>
+  <h3>Mens Shoes</h3>
+
+  <div class="grid-container">
+
+    <div class="card">
+      <img class="outfit-img" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=900&auto=format&fit=crop">
+      <h4>Casual Shoes</h4>
+      <p class="price">₹5,999</p>
+
+      <a class="buy-btn"
+      href="https://www.amazon.in/s?k=premium+shoe"
+      target="_blank">
+      Buy Now
+      </a>
+    </div>
+
+    <div class="card">
+      <img class="outfit-img" src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=900&auto=format&fit=crop">
+      <h4>Premium Sneakers</h4>
+      <p class="price">₹6,499</p>
+
+      <a class="buy-btn"
+      href="https://www.amazon.in/"
+      target="_blank">
+      Buy Now
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACCESSORIES -->
+<section>
+  <h3>Mens Accessories</h3>
+
+  <div class="grid-container">
+
+    <div class="card">
+      <img class="outfit-img" src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=900&auto=format&fit=crop">
+      <h4>Luxury Premium Bag</h4>
+      <p class="price">₹2,299</p>
+
+      <a class="buy-btn"
+      href="https://www.amazon.in/s?k=premium+office+bag+for+men+leather"
+      target="_blank">
+      Buy Now
+      </a>
+    </div>
+
+    <div class="card">
+      <img class="outfit-img" src="https://cdn.fynd.com/v2/falling-surf-7c8bb8/fyprod/wrkr/products/pictures/item/free/original/000000410561086001/j7EIqOiNjem-410561086001_1.jpg">
+      <h4>Leather Wallet</h4>
+      <p class="price">₹1,499</p>
+
+      <a class="buy-btn"
+      href="https://www.amazon.in/s?k=premium+wallet"
+      target="_blank">
+      Buy Now
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 MENX Luxury Accessories</p>
+</footer>
+
+</body>
+</html>
