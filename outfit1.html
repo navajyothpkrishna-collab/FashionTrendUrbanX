@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <title>UrbanX Fashion Trends</title>   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     
     <style>
         :root {
             --bg-color: #F4EBD8;
@@ -24,20 +24,19 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            overflow-x: hidden; /* Prevents horizontal scroll from 3D elements */
-        }
+            overflow-x: hidden;  
 
-        /* --- NEW 3D BACKGROUND EFFECTS --- */
+        
         .bg-3d-wrapper {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -5; /* Keep it behind everything */
+            z-index: -5;  
             overflow: hidden;
             background-color: var(--bg-color);
-            perspective: 1000px; /* Enables 3D depth */
+            perspective: 1000px;   
         }
 
         .shape-3d {
@@ -54,7 +53,7 @@
             bottom: -300px;
         }
 
-        /* Individual shapes with varied 3D properties */
+        
         .shape-1 { width: 120px; height: 120px; left: 10%; border-radius: 20px; animation-duration: 25s; }
         .shape-2 { width: 220px; height: 220px; left: 70%; border-radius: 50%; animation-duration: 35s; animation-delay: -5s; }
         .shape-3 { width: 80px; height: 80px; left: 40%; border-radius: 15px; animation-duration: 20s; animation-delay: -10s; }
@@ -326,11 +325,11 @@
             box-shadow: 0 6px 15px rgba(189, 242, 113, 0.5);
         }
 
-        #filter-all:checked ~ .filter-menu label[for="filter-all"],
-        #filter-streetwear:checked ~ .filter-menu label[for="filter-streetwear"],
-        #filter-formal:checked ~ .filter-menu label[for="filter-formal"],
-        #filter-casual:checked ~ .filter-menu label[for="filter-casual"]
-        #filter-traditional:checked ~ .filter-menu label[for="filter-traditional"] 
+            #filter-all:checked ~ .filter-menu label[for="filter-all"],
+            #filter-streetwear:checked ~ .filter-menu label[for="filter-streetwear"],
+            #filter-formal:checked ~ .filter-menu label[for="filter-formal"],
+            #filter-casual:checked ~ .filter-menu label[for="filter-casual"]
+            #filter-traditional:checked ~ .filter-menu label[for="filter-traditional"] 
         {
             background-color: #bdf271;
             border-color: #bdf271;
@@ -385,10 +384,11 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* --- CSS FILTERING LOGIC --- */
+        
         #filter-streetwear:checked ~ .product-grid .product-card:not(.streetwear) { display: none; }
         #filter-formal:checked ~ .product-grid .product-card:not(.formal) { display: none; }
         #filter-traditional:checked ~ .product-grid .product-card:not(.traditional) { display: none; }
+         #filter-casual:checked ~ .product-grid .product-card:not(.casual) { display: none; }
 
         #myVideo {
             position: fixed;
@@ -405,8 +405,7 @@
             inset: 0;
             background: rgba(0,0,0,0.45);
             z-index: -1;
-        } /* Note: I fixed the syntax error here that was breaking your CSS */
-
+        }  
         #home {
             position: relative;
             height: 100vh;
@@ -439,7 +438,7 @@
 </head>
 <body>
 
-    <!-- 3D ANIMATED BACKGROUND CONTAINER -->
+     
     <div class="bg-3d-wrapper">
         <div class="shape-3d shape-1"></div>
         <div class="shape-3d shape-2"></div>
@@ -547,13 +546,13 @@
         </section>
     </main>
 <audio id="myVoiceFile">
-        <!-- REPLACE 'your-audio-file.mp3' with your actual sound file name -->
+         
         <source src="lal2.mp3" type="audio/mpeg">
     </audio>
     <script>
         function playVoice() {
             var audio = document.getElementById("myVoiceFile");
-            audio.currentTime = 0; // Resets the audio to the beginning if clicked multiple times
+            audio.currentTime = 0; 
             audio.play();
         }
     </script>

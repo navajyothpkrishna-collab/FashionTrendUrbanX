@@ -143,17 +143,17 @@ main {
   color: var(--brand-yellow); 
   font-style: normal;
 }
-/* --- NEW 3D BACKGROUND EFFECTS --- */
+ 
         .bg-3d-wrapper {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            z-index: -5; /* Keep it behind everything */
+            z-index: -5;  
             overflow: hidden;
             background-color: var(--bg-color);
-            perspective: 1000px; /* Enables 3D depth */
+            perspective: 1000px;  
         }
 
         .shape-3d {
@@ -162,7 +162,7 @@ main {
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            /* Soft 3D Neumorphic Shadows matching your theme */
+             
             box-shadow: 20px 20px 40px rgba(196, 164, 132, 0.4),
                        -20px -20px 40px rgba(255, 255, 255, 0.9);
             transform-style: preserve-3d;
@@ -170,7 +170,7 @@ main {
             bottom: -300px;
         }
 
-        /* Individual shapes with varied 3D properties */
+         
         .shape-1 { width: 120px; height: 120px; left: 10%; border-radius: 20px; animation-duration: 25s; }
         .shape-2 { width: 220px; height: 220px; left: 70%; border-radius: 50%; animation-duration: 35s; animation-delay: -5s; }
         .shape-3 { width: 80px; height: 80px; left: 40%; border-radius: 15px; animation-duration: 20s; animation-delay: -10s; }
